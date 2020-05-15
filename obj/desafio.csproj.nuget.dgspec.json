@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/rosa-maria-bugan/Projects/desafio/desafio.csproj": {}
+  },
+  "projects": {
+    "/home/rosa-maria-bugan/Projects/desafio/desafio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/rosa-maria-bugan/Projects/desafio/desafio.csproj",
+        "projectName": "desafio",
+        "projectPath": "/home/rosa-maria-bugan/Projects/desafio/desafio.csproj",
+        "packagesPath": "/home/rosa-maria-bugan/.nuget/packages/",
+        "outputPath": "/home/rosa-maria-bugan/Projects/desafio/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/rosa-maria-bugan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.10.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
