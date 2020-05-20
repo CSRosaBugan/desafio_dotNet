@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using desafio.data;
 using desafio.Models;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using desafio.Services;
+using System;
 
 namespace desafio.Controllers
 {
@@ -12,26 +10,39 @@ namespace desafio.Controllers
     [Route("v1/users")]
     public class UserController : ControllerBase
     {
+        private readonly UserService _userService;
+
+        public UserController(UserService userService)
+        {
+            _userService = userService;
+        }
+
         [HttpGet]
         [Route("list")]
-        public async Task<ActionResult<List<User>>> Get([FromServices] DataContext context)
+        public ActionResult<List<User>> Get() => _userService.Get();
+        [HttpGet("{id:length(24)}", Name = "GetUser")]
+
+        public ActionResult<User> Get(string id)
         {
-            var users = await context.Users.ToListAsync();
-            return users;
+            var user = _userService.Get(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+         
+            return user;
         }
         [HttpPost]
         [Route("create")]
-        public async Task<ActionResult<User>> Post(
-            [FromServices] DataContext context,
-            [FromBody]User model)
+        public ActionResult<User> Create(User user)
             {
                 if(ModelState.IsValid)
                 {
-                    model.data_criacao= DateTime.Now;
-                    model.data_atualizacao= DateTime.Now;
-                    context.Users.Add(model);
-                    await context.SaveChangesAsync();
-                    return model;
+                    user.data_criacao= DateTime.Now;
+                    user.data_atualizacao= DateTime.Now;
+                    _userService.Create(user);
+                   
+                    return CreatedAtRoute("GetUser", new {Id = user.Id.ToString() }, user);
                 }
                 else{
                     return BadRequest(ModelState);

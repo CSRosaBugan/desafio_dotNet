@@ -3,8 +3,6 @@ namespace desafio.Models
 {
     public class Telefone
     {
-        [Key]
-        public int Id { get; set; }
         [Required(ErrorMessage = "este campo eh obrigatorio")]
         [MaxLength(9, ErrorMessage = "Este campo deve conter no maximo 9 caracters")]
         [MinLength(8, ErrorMessage = "Este campo deve conter no minimo 8 caracters")]
